@@ -3,6 +3,7 @@ local M = {}
 function M.set()
   require("neomood.autocmd_langs.ruby")
   require("neomood.autocmd_langs.csv")
+  require("neomood.autocmd_langs.markdown")
 
   vim.api.nvim_create_autocmd("BufWritePre", {
     pattern = "*",
