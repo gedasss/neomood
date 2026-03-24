@@ -8,7 +8,7 @@ return {
     build = ":TSUpdate",
     event = "VeryLazy",
     config = function()
-      require("nvim-treesitter.configs").setup({
+      require("nvim-treesitter").setup({
         auto_install = true,
         ensure_installed = {
           "ruby",
@@ -47,6 +47,13 @@ return {
         },
 
         endwise = { enable = true },
+      })
+
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "*",
+        callback = function()
+          pcall(vim.treesitter.start)
+        end,
       })
     end,
   },
