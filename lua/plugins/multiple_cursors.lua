@@ -9,16 +9,16 @@ return {
       local set = vim.keymap.set
 
       -- Add or skip cursor above/below the main cursor.
-      set({ "n", "x" }, "<C-k>", function() mc.lineAddCursor(-1) end)
-      set({ "n", "x" }, "<C-j>", function() mc.lineAddCursor(1) end)
+      set({ "n", "x" }, "<C-k>", function() mc.lineAddCursor(-1) end, { desc = "Add Cursor Up" })
+      set({ "n", "x" }, "<C-j>", function() mc.lineAddCursor(1) end, { desc = "Add Cursor Down" })
       set({ "n", "x" }, "<leader>n", function() mc.matchAllAddCursors() end, { desc = "Match All Cursors" })
-      set({ "n", "x" }, "<leader><C-k>", function() mc.lineSkipCursor(-1) end)
-      set({ "n", "x" }, "<leader><C-j>", function() mc.lineSkipCursor(1) end)
+      set({ "n", "x" }, "<leader><C-k>", function() mc.lineSkipCursor(-1) end, { desc = "Skip Multiple Cursor Up" })
+      set({ "n", "x" }, "<leader><C-j>", function() mc.lineSkipCursor(1) end, { desc = "Skip Multiple Cursor Down" })
 
       -- Add or skip adding a new cursor by matching word/selection
-      set({ "n", "x" }, "<M-d>", function() mc.matchAddCursor(1) end)
-      set({ "n", "x" }, "<C-n>", function() mc.matchAddCursor(1) end)
-      set({ "n", "x" }, "<C-q>", function() mc.matchSkipCursor(1) end)
+      set({ "n", "x" }, "<M-d>", function() mc.matchAddCursor(1) end, { desc = "Match Cursor Up" })
+      set({ "n", "x" }, "<C-n>", function() mc.matchAddCursor(1) end, { desc = "Match Cursor Down" })
+      set({ "n", "x" }, "<C-q>", function() mc.matchSkipCursor(1) end, { desc = "Skip Match Multiple Cursors" })
 
       -- Add and remove cursors with control + left click.
       set("n", "<c-leftmouse>", mc.handleMouse)
