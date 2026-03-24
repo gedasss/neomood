@@ -17,6 +17,7 @@ return {
         { "<leader>g",  group = "Git" },
         { "<leader>h",  group = "Help" },
         { "<leader>l",  group = "Tmux" },
+        { "<leader>m",  group = "Language Related Commands" },
         { "<leader>o",  group = "Open" },
         { "<leader>q",  group = "Quit/Close" },
         { "<leader>r",  group = "Rails" },
