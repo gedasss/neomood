@@ -44,6 +44,7 @@ NVIM_APPNAME=neomood-test nvim
 - **Python 3** with neovim package: `pip3 install neovim`
 - **Ruby** with neovim gem: `gem install neovim`
 - **Node.js** (for JavaScript/TypeScript LSP support)
+- *tree-sitter-cli*: Should be installed with your package manager, not npm
 
 Run `:checkhealth` in Neovim to verify all requirements are met.
 
