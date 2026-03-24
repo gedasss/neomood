@@ -17,7 +17,7 @@ return {
 
       require("mason").setup()
       require("mason-lspconfig").setup({
-        automatic_installation = { exclude = { "solargraph", "rubocop" } }, -- don't install it please
+        automatic_installation = { exclude = { "solargraph", "ruby_lsp", "rubocop" } }, -- don't install it please
         ensure_installed = mason_langs,
       })
 
@@ -39,25 +39,11 @@ return {
         capabilities = lsp_capabilities,
       })
 
-      local solargraph_opts = {
-        intellisense = false,
-        codeCompletion = false,
-        formatting = false,
-        autoformat = false,
-        useBundler = true,
-        diagnostics = false,
-      }
-
-      vim.lsp.config("solargraph", {
+      vim.lsp.config("ruby_lsp", {
         capabilities = lsp_capabilities,
         on_attach = function(client)
           client.server_capabilities.documentFormattingProvider = false
         end,
-        cmd = { "bundle", "exec", "solargraph", "stdio" },
-        init_options = solargraph_opts,
-        settings = {
-          solargraph = solargraph_opts,
-        },
       })
 
       vim.lsp.config("rubocop", {
@@ -67,7 +53,6 @@ return {
 
       -- Enable servers not managed by mason
       vim.lsp.enable("ts_ls")
-      vim.lsp.enable("solargraph")
       vim.lsp.enable("rubocop")
 
       local border_opts = {
