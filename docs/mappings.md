@@ -164,6 +164,13 @@ This document provides a comprehensive reference of all key mappings in NeoMood,
 ### Git Blame - [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)
 - `<leader>gB` - Git blame (fugitive)
 
+### Mouse
+- `<MiddleMouse>` - Go to definition (LSP buffers)
+- `<RightMouse>` - Jump back in jumplist (`<C-o>`)
+- `<C-RightMouse>` - Jump forward in jumplist (`<C-i>`)
+- `<2-MiddleMouse>`, `<3-MiddleMouse>`, `<4-MiddleMouse>` - Disabled (prevent accidental paste)
+- `<2-RightMouse>`, `<3-RightMouse>`, `<4-RightMouse>` - Disabled (prevent accidental selection)
+
 ### LSP Operations - [neovim/nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
 - `K` - Show hover information
 - `gd` - Go to definition

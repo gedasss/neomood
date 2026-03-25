@@ -80,6 +80,7 @@ return {
 
           -- Jump to the definition
           bufmap("n", "gd", fzf_lua.lsp_definitions)
+          bufmap("n", "<MiddleMouse>", "<LeftMouse><cmd>lua require('fzf-lua').lsp_definitions()<cr>")
 
           -- Jump to declaration
           bufmap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>")

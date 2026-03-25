@@ -5,16 +5,29 @@ return {
       "nvim-tree/nvim-web-devicons",
       "otavioschwanck/fzf-lua-enchanted-files"
     },
+    config = function(_, opts)
+      require("fzf-lua").setup(vim.tbl_deep_extend("force", { "telescope" }, opts))
+    end,
     opts = {
       winopts = {
+        height = 0.85,
         width = 0.9,
+        row = 0.35,
+        border = "rounded",
         preview = {
-          horizontal = "right:50%", -- if you dont use ultrawide, you can decrease this percent
+          border = "rounded",
+          horizontal = "right:50%",
           flip_columns = 160,
           winopts = {
             number = false,
-          }
+          },
         },
+      },
+      fzf_opts = {
+        ["--layout"] = "reverse",
+      },
+      defaults = {
+        formatter = "path.dirname_first"
       },
       keymap = {
         fzf = {
@@ -22,11 +35,9 @@ return {
         },
       },
       files = {
-        -- use oldfiles history, so recent files appear on top
         oldfiles = true,
-        -- optional: limit how many recent files are remembered
         oldfiles_limit = 100,
-      }
+      },
     },
     keys = {
       {
