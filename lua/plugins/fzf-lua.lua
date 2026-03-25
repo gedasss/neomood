@@ -6,6 +6,12 @@ return {
       "otavioschwanck/fzf-lua-enchanted-files"
     },
     config = function(_, opts)
+      local actions = require("fzf-lua.actions")
+      opts.actions = {
+        files = {
+          ["ctrl-l"] = actions.file_sel_to_qf,
+        },
+      }
       require("fzf-lua").setup(vim.tbl_deep_extend("force", { "telescope" }, opts))
     end,
     opts = {
@@ -117,6 +123,27 @@ return {
           require("fzf-lua").blines({ previewer = false })
         end,
         desc = "Search on buffer",
+      },
+      {
+        "<leader>si",
+        function()
+          require("fzf-lua").lsp_document_symbols()
+        end,
+        desc = "Document Symbols",
+      },
+      {
+        "<leader>sI",
+        function()
+          require("fzf-lua").lsp_workspace_symbols()
+        end,
+        desc = "Project Symbols",
+      },
+      {
+        "<leader>sW",
+        function()
+          require("fzf-lua").lsp_workspace_symbols({ query = vim.fn.expand("<cword>") })
+        end,
+        desc = "Project Symbols (word at cursor)",
       },
       {
         "<leader>so",
