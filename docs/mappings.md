@@ -135,6 +135,9 @@ This document provides a comprehensive reference of all key mappings in NeoMood,
 - `<leader>ss` - Search in current buffer
 - `<leader>so` - Search in all open buffers
 - `<leader>sD` - Live grep on specific folder
+- `<leader>si` - Document symbols
+- `<leader>sI` - Project symbols
+- `<leader>sW` - Project symbols (word at cursor)
 
 ### Git Operations - [lewis6991/gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - `]g` - Next git hunk

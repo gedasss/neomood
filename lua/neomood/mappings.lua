@@ -118,9 +118,9 @@ function M.set()
   vim.keymap.set({ "n", "v", "x", "i" }, "<4-MiddleMouse>", "<Nop>", { noremap = true, silent = true })
   vim.keymap.set({ "n", "v", "x", "i" }, "<RightMouse>", "<C-o>", { noremap = true, silent = true })
   vim.keymap.set({ "n", "v", "x", "i" }, "<C-RightMouse>", "<C-i>", { noremap = true, silent = true })
-  vim.keymap.set({ "n", "v", "x", "i" }, "<2-RightMouse>", "<Nop>", { noremap = true, silent = true })
-  vim.keymap.set({ "n", "v", "x", "i" }, "<3-RightMouse>", "<Nop>", { noremap = true, silent = true })
-  vim.keymap.set({ "n", "v", "x", "i" }, "<4-RightMouse>", "<Nop>", { noremap = true, silent = true })
+  vim.keymap.set({ "n", "v", "x", "i" }, "<2-RightMouse>", "<C-o>", { noremap = true, silent = true })
+  vim.keymap.set({ "n", "v", "x", "i" }, "<3-RightMouse>", "<C-o>", { noremap = true, silent = true })
+  vim.keymap.set({ "n", "v", "x", "i" }, "<4-RightMouse>", "<C-o>", { noremap = true, silent = true })
 
   vim.cmd([[
     nnoremap <expr> 0 (col('.') - 1) == match(getline('.'),'\S') ? "<Home>" : "^"
