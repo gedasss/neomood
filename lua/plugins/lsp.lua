@@ -54,6 +54,7 @@ return {
       -- Enable servers not managed by mason
       vim.lsp.enable("ts_ls")
       vim.lsp.enable("rubocop")
+      vim.lsp.enable("ruby_lsp")
 
       local border_opts = {
         border = { { "╭" }, { "─" }, { "╮" }, { "│" }, { "╯" }, { "─" }, { "╰" }, { "│" } },
@@ -79,6 +80,10 @@ return {
 
           -- Jump to the definition
           bufmap("n", "gd", fzf_lua.lsp_definitions)
+          bufmap("n", "<MiddleMouse>",   "<LeftMouse><cmd>lua require('fzf-lua').lsp_definitions()<cr>")
+          bufmap("n", "<2-MiddleMouse>", "<LeftMouse><cmd>lua require('fzf-lua').lsp_definitions()<cr>")
+          bufmap("n", "<3-MiddleMouse>", "<LeftMouse><cmd>lua require('fzf-lua').lsp_definitions()<cr>")
+          bufmap("n", "<4-MiddleMouse>", "<LeftMouse><cmd>lua require('fzf-lua').lsp_definitions()<cr>")
 
           -- Jump to declaration
           bufmap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>")

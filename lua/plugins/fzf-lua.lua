@@ -5,16 +5,35 @@ return {
       "nvim-tree/nvim-web-devicons",
       "otavioschwanck/fzf-lua-enchanted-files"
     },
+    config = function(_, opts)
+      local actions = require("fzf-lua.actions")
+      opts.actions = {
+        files = {
+          ["ctrl-l"] = actions.file_sel_to_qf,
+        },
+      }
+      require("fzf-lua").setup(vim.tbl_deep_extend("force", { "telescope" }, opts))
+    end,
     opts = {
       winopts = {
-        width = 0.9,
+        height = 0.80,
+        width = 0.8,
+        row = 0.50,
+        border = "rounded",
         preview = {
-          horizontal = "right:50%", -- if you dont use ultrawide, you can decrease this percent
+          border = "rounded",
+          horizontal = "right:50%",
           flip_columns = 160,
           winopts = {
             number = false,
-          }
+          },
         },
+      },
+      fzf_opts = {
+        ["--layout"] = "reverse",
+      },
+      defaults = {
+        formatter = "path.dirname_first"
       },
       keymap = {
         fzf = {
@@ -22,11 +41,9 @@ return {
         },
       },
       files = {
-        -- use oldfiles history, so recent files appear on top
         oldfiles = true,
-        -- optional: limit how many recent files are remembered
         oldfiles_limit = 100,
-      }
+      },
     },
     keys = {
       {
@@ -106,6 +123,27 @@ return {
           require("fzf-lua").blines({ previewer = false })
         end,
         desc = "Search on buffer",
+      },
+      {
+        "<leader>si",
+        function()
+          require("fzf-lua").lsp_document_symbols()
+        end,
+        desc = "Document Symbols",
+      },
+      {
+        "<leader>sI",
+        function()
+          require("fzf-lua").lsp_workspace_symbols()
+        end,
+        desc = "Project Symbols",
+      },
+      {
+        "<leader>sW",
+        function()
+          require("fzf-lua").lsp_workspace_symbols({ query = vim.fn.expand("<cword>") })
+        end,
+        desc = "Project Symbols (word at cursor)",
       },
       {
         "<leader>so",

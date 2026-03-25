@@ -18,6 +18,7 @@ function M.set()
   opt.laststatus = 3
   opt.list = true            -- Show some invisible characters (tabs...
   opt.mouse = "a"            -- Enable mouse mode
+  opt.mousemodel = "extend"  -- Disable right-click popup menu
   opt.number = true          -- Print line number
   opt.pumheight = 10         -- Maximum number of entries in a popup
   opt.scrolloff = 4          -- Lines of context
