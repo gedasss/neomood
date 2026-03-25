@@ -16,9 +16,9 @@ return {
     end,
     opts = {
       winopts = {
-        height = 0.85,
-        width = 0.9,
-        row = 0.35,
+        height = 0.80,
+        width = 0.8,
+        row = 0.50,
         border = "rounded",
         preview = {
           border = "rounded",
